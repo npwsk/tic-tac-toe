@@ -10,6 +10,7 @@
 }
 
 body {
+  position: relative;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -130,4 +131,65 @@ body {
   height: 30px;
   background-image: url("https://rs.school/images/rs_school_js.svg");
   background-size: contain;
+}
+
+.end-message {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  visibility: hidden;
+}
+.end-message__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  justify-content: center;
+  align-items: center;
+  min-width: 400px;
+  min-height: 200px;
+  padding: 50px;
+  background-color: #ffffff;
+}
+.end-message__text {
+  font-size: 2em;
+}
+.end-message--active {
+  visibility: visible;
+}
+
+.restart-btn {
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+  height: 2.5em;
+  padding: 0 1em 0 0.8em;
+  color: #ffffff;
+  background: none;
+  background-color: #000000;
+  border: none;
+  border-radius: 1.25em;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.restart-btn__icon {
+  display: block;
+  width: 1em;
+  height: 1em;
+  background-image: url("../assets/svg/restart.svg");
+  background-size: contain;
+  transform: rotate(0);
+  transition: transform 0.5s ease-out;
+}
+.restart-btn:hover {
+  box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+.restart-btn:hover .restart-btn__icon {
+  transform: rotate(360deg);
 }/*# sourceMappingURL=index.css.map */
