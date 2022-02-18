@@ -59,9 +59,11 @@ body {
   border-right: none;
 }
 .cell.x, .cell.circle {
+  color: #000000;
   cursor: default;
 }
 
+.board.x .cell:not(.x):not(.circle):hover::before, .board.x .cell:not(.x):not(.circle):hover::after,
 .cell.x::before,
 .cell.x::after {
   position: absolute;
@@ -69,17 +71,18 @@ body {
   display: block;
   width: calc(var(--size-mark) * 0.2);
   height: var(--size-mark);
-  background-color: #000000;
+  background-color: currentcolor;
 }
-
+.board.x .cell:not(.x):not(.circle):hover::before,
 .cell.x::before {
   transform: rotate(45deg);
 }
-
+.board.x .cell:not(.x):not(.circle):hover::after,
 .cell.x::after {
   transform: rotate(-45deg);
 }
 
+.board.circle .cell:not(.x):not(.circle):hover::before, .board.circle .cell:not(.x):not(.circle):hover::after,
 .cell.circle::before,
 .cell.circle::after {
   position: absolute;
@@ -87,15 +90,15 @@ body {
   display: block;
   border-radius: 50%;
 }
-
+.board.circle .cell:not(.x):not(.circle):hover::before,
 .cell.circle::before {
   width: calc(var(--size-mark) * 0.9);
   height: calc(var(--size-mark) * 0.9);
-  background-color: #000000;
+  border: calc(var(--size-mark) * 0.2) solid currentcolor;
 }
 
-.cell.circle::after {
-  width: calc(var(--size-mark) * 0.6);
-  height: calc(var(--size-mark) * 0.6);
-  background-color: #ffffff;
+.board.x .cell:not(.x):not(.circle):hover::before, .board.x .cell:not(.x):not(.circle):hover::after,
+.board.circle .cell:not(.x):not(.circle):hover::before,
+.board.circle .cell:not(.x):not(.circle):hover::after {
+  color: #e0e0e0;
 }/*# sourceMappingURL=index.css.map */

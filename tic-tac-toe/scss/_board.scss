@@ -35,44 +35,53 @@
 
   &.x,
   &.circle {
+    color: #000000;
     cursor: default;
   }
 }
 
-.cell.x::before,
-.cell.x::after {
-  position: absolute;
-  content: "";
-  display: block;
-  width: calc(var(--size-mark) * 0.2);
-  height: var(--size-mark);
-  background-color: #000000;
+.board.x .cell:not(.x):not(.circle):hover,
+.cell.x {
+  &::before,
+  &::after {
+    position: absolute;
+    content: "";
+    display: block;
+    width: calc(var(--size-mark) * 0.2);
+    height: var(--size-mark);
+    background-color: currentcolor;
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
 }
 
-.cell.x::before {
-  transform: rotate(45deg);
+.board.circle .cell:not(.x):not(.circle):hover,
+.cell.circle {
+  &::before,
+  &::after {
+    position: absolute;
+    content: "";
+    display: block;
+    border-radius: 50%;
+  }
+
+  &::before {
+    width: calc(var(--size-mark) * 0.9);
+    height: calc(var(--size-mark) * 0.9);
+    border: calc(var(--size-mark) * 0.2) solid currentcolor;
+  }
 }
 
-.cell.x::after {
-  transform: rotate(-45deg);
-}
-
-.cell.circle::before,
-.cell.circle::after {
-  position: absolute;
-  content: "";
-  display: block;
-  border-radius: 50%;
-}
-
-.cell.circle::before {
-  width: calc(var(--size-mark) * 0.9);
-  height: calc(var(--size-mark) * 0.9);
-  background-color: #000000;
-}
-
-.cell.circle::after {
-  width: calc(var(--size-mark) * 0.6);
-  height: calc(var(--size-mark) * 0.6);
-  background-color: #ffffff;
+.board.x .cell:not(.x):not(.circle):hover,
+.board.circle .cell:not(.x):not(.circle):hover {
+  &::before,
+  &::after {
+    color: #e0e0e0;
+  }
 }
