@@ -1,0 +1,21 @@
+{
+  "name": "tic-tac-toe",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "Nika Perfilova",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4",
+    "htmlhint": "^1.1.2",
+    "stylelint": "^14.5.0",
+    "stylelint-config-standard-scss": "^3.0.0",
+    "stylelint-rational-order-plugin": "^1.0.2",
+    "stylelint-selector-bem-pattern": "^2.1.1"
+  }
+}

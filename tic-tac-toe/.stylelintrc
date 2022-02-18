@@ -1,0 +1,15 @@
+{
+  "extends": ["stylelint-config-standard-scss"],
+  "plugins": ["stylelint-selector-bem-pattern", "stylelint-rational-order-plugin"],
+  "rules": {
+    "selector-class-pattern": null,
+    "plugin/selector-bem-pattern": {
+      "preset": "bem"
+    },
+    "color-hex-length": "long",
+    "font-family-name-quotes": "always-unless-keyword",
+    "custom-property-pattern": null,
+    "plugin/rational-order": true
+  },
+  "ignoreFiles": ["**/**/*.css"]
+}
