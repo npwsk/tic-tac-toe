@@ -61,6 +61,10 @@ body {
   transform-origin: 0% 50%;
 }
 
+.current-turn {
+  display: flex;
+}
+
 .board {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

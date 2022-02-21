@@ -28,6 +28,7 @@ const scoreboard = document.querySelector('.scoreboard');
 const scoreboardXWins = scoreboard.querySelector('.x-wins-count');
 const scoreboardOWins = scoreboard.querySelector('.o-wins-count');
 const scoreboardDraws = scoreboard.querySelector('.draws-count');
+const currentTurn = document.querySelector('.current-turn__turn');
 
 const setLocalStorage = () => {
   const { results } = gameState;
@@ -49,11 +50,17 @@ const updateScoreboard = () => {
   scoreboardDraws.textContent = drawsCount;
 };
 
+const updateTurn = () => {
+  currentTurn.textContent = gameState.turn;
+};
+
 const switchTurns = () => {
   gameState.turn = gameState.turn === X ? CIRCLE : X;
 
   board.classList.remove(X, CIRCLE);
   board.classList.add(gameState.turn);
+
+  updateTurn();
 };
 
 const checkWin = () =>
@@ -107,6 +114,8 @@ const handleCellClick = (e) => {
 const startGame = () => {
   gameState.movesCount = 0;
   gameState.turn = X;
+
+  updateTurn();
 
   board.classList.remove(X, CIRCLE);
   board.classList.add(X);
