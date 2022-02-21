@@ -38,6 +38,8 @@ body {
 
 .link {
   position: relative;
+  color: #000000;
+  text-decoration: none;
 
   &::after {
     position: absolute;
