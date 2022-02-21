@@ -22,5 +22,9 @@
     height: 30px;
     background-image: url("https://rs.school/images/rs_school_js.svg");
     background-size: contain;
+
+    &::after {
+      bottom: -5px;
+    }
   }
 }
