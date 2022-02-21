@@ -1,0 +1,55 @@
+.scoreboard {
+  display: grid;
+  grid-template-areas:
+    "title title title"
+    "descr descr descr"
+    "x-head draw-head o-head"
+    "x-count draw-count o-count";
+  grid-template-columns: repeat(3, auto);
+  justify-items: center;
+  min-width: 300px;
+
+  &__title {
+    grid-area: title;
+    margin: 0;
+  }
+
+  &__description {
+    grid-area: descr;
+    margin-top: 0.5em;
+    margin-bottom: 1.5em;
+    font-size: 0.8em;
+  }
+
+  &__cell {
+    padding: 5px 10px;
+
+    &--head {
+      text-decoration: underline;
+    }
+  }
+}
+
+.x-wins {
+  grid-area: x-head;
+
+  &-count {
+    grid-area: x-count;
+  }
+}
+
+.o-wins {
+  grid-area: o-head;
+
+  &-count {
+    grid-area: o-count;
+  }
+}
+
+.draws {
+  grid-area: draw-head;
+
+  &-count {
+    grid-area: draw-count;
+  }
+}

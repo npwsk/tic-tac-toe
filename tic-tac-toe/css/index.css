@@ -22,9 +22,22 @@ body {
 .main {
   display: flex;
   flex-grow: 1;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100%;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+.sidebar--top {
+  order: -1;
+  padding-top: 2rem;
 }
 
 .link {
@@ -130,6 +143,51 @@ body {
 .board.circle .cell:not(.x):not(.circle):hover::before,
 .board.circle .cell:not(.x):not(.circle):hover::after {
   color: #e0e0e0;
+}
+
+.scoreboard {
+  display: grid;
+  grid-template-areas: "title title title" "descr descr descr" "x-head draw-head o-head" "x-count draw-count o-count";
+  grid-template-columns: repeat(3, auto);
+  justify-items: center;
+  min-width: 300px;
+}
+.scoreboard__title {
+  grid-area: title;
+  margin: 0;
+}
+.scoreboard__description {
+  grid-area: descr;
+  margin-top: 0.5em;
+  margin-bottom: 1.5em;
+  font-size: 0.8em;
+}
+.scoreboard__cell {
+  padding: 5px 10px;
+}
+.scoreboard__cell--head {
+  text-decoration: underline;
+}
+
+.x-wins {
+  grid-area: x-head;
+}
+.x-wins-count {
+  grid-area: x-count;
+}
+
+.o-wins {
+  grid-area: o-head;
+}
+.o-wins-count {
+  grid-area: o-count;
+}
+
+.draws {
+  grid-area: draw-head;
+}
+.draws-count {
+  grid-area: draw-count;
 }
 
 .footer__content {

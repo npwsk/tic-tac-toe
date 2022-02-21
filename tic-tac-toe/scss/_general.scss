@@ -17,9 +17,23 @@ body {
 .main {
   display: flex;
   flex-grow: 1;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100%;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+
+  &--top {
+    order: -1;
+    padding-top: 2rem;
+  }
 }
 
 .link {

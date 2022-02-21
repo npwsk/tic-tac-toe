@@ -37,6 +37,27 @@
       </div>
     </main>
 
+    <aside class="sidebar">
+      <button class="restart-btn">
+        <span class="restart-btn__icon"></span>
+        Restart
+      </button>
+    </aside>
+
+    <aside class="sidebar sidebar--top">
+      <div class="scoreboard">
+        <h2 class="scoreboard__title">Scoreboard</h2>
+        <div class="scoreboard__description">(only the last 10 games are counted)</div>
+
+        <div class="scoreboard__cell scoreboard__cell--head x-wins">X</div>
+        <div class="scoreboard__cell scoreboard__cell--head draws">Draws</div>
+        <div class="scoreboard__cell scoreboard__cell--head o-wins">O</div>
+        <div class="scoreboard__cell x-wins-count"></div>
+        <div class="scoreboard__cell draws-count"></div>
+        <div class="scoreboard__cell o-wins-count"></div>
+      </div>
+    </aside>
+
     <footer class="footer">
       <div class="footer__content">
         <div class="footer__copyright">
@@ -62,7 +83,8 @@
     </footer>
     <div class="end-message">
       <div class="end-message__inner">
-        <div class="end-message__text">Game over</div>
+        <div class="end-message__text"></div>
+        <div class="end-message__moves-total"></div>
         <button class="restart-btn">
           <span class="restart-btn__icon"></span>
           Restart
