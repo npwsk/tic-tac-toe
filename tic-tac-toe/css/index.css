@@ -1,6 +1,6 @@
 :root {
   --size-cell: 80px;
-  --size-mark: 70px;
+  --size-mark: 60px;
 }
 
 *,
@@ -63,6 +63,20 @@ body {
 
 .current-turn {
   display: flex;
+  align-items: center;
+}
+
+.turn-icon {
+  display: block;
+  width: 1em;
+  height: 1em;
+  background-size: contain;
+}
+.turn-icon.x {
+  background-image: url("../assets/svg/x-icon.svg");
+}
+.turn-icon.circle {
+  background-image: url("../assets/svg/o-icon.svg");
 }
 
 .board {
@@ -109,44 +123,31 @@ body {
   cursor: default;
 }
 
-.board.x .cell:not(.x):not(.circle):hover::before, .board.x .cell:not(.x):not(.circle):hover::after,
+.board.x .cell:not(.x):not(.circle):hover::before,
+.board.circle .cell:not(.x):not(.circle):hover::before,
 .cell.x::before,
-.cell.x::after {
-  position: absolute;
+.cell.circle::before {
+  position: relative;
   content: "";
   display: block;
-  width: calc(var(--size-mark) * 0.2);
+  width: var(--size-mark);
   height: var(--size-mark);
-  background-color: currentcolor;
+  background-size: contain;
 }
+
 .board.x .cell:not(.x):not(.circle):hover::before,
 .cell.x::before {
-  transform: rotate(45deg);
-}
-.board.x .cell:not(.x):not(.circle):hover::after,
-.cell.x::after {
-  transform: rotate(-45deg);
+  background-image: url("../assets/svg/x-icon.svg");
 }
 
-.board.circle .cell:not(.x):not(.circle):hover::before, .board.circle .cell:not(.x):not(.circle):hover::after,
-.cell.circle::before,
-.cell.circle::after {
-  position: absolute;
-  content: "";
-  display: block;
-  border-radius: 50%;
-}
 .board.circle .cell:not(.x):not(.circle):hover::before,
 .cell.circle::before {
-  width: calc(var(--size-mark) * 0.9);
-  height: calc(var(--size-mark) * 0.9);
-  border: calc(var(--size-mark) * 0.2) solid currentcolor;
+  background-image: url("../assets/svg/o-icon.svg");
 }
 
-.board.x .cell:not(.x):not(.circle):hover::before, .board.x .cell:not(.x):not(.circle):hover::after,
-.board.circle .cell:not(.x):not(.circle):hover::before,
-.board.circle .cell:not(.x):not(.circle):hover::after {
-  color: #e0e0e0;
+.board.x .cell:not(.x):not(.circle):hover::before,
+.board.circle .cell:not(.x):not(.circle):hover::before {
+  filter: invert(99%) sepia(0%) saturate(6745%) hue-rotate(229deg) brightness(122%) contrast(76%);
 }
 
 .scoreboard {
@@ -243,7 +244,24 @@ body {
   background-color: #ffffff;
 }
 .end-message__text {
+  display: flex;
+  gap: 0.3em;
+  align-items: center;
   font-size: 2em;
+}
+.end-message__text.x::before, .end-message__text.circle::before {
+  content: "";
+  display: block;
+  width: 1em;
+  height: 1em;
+  margin-bottom: -5px;
+  background-size: contain;
+}
+.end-message__text.x::before {
+  background-image: url("../assets/svg/x-icon.svg");
+}
+.end-message__text.circle::before {
+  background-image: url("../assets/svg/o-icon.svg");
 }
 .end-message--active {
   visibility: visible;

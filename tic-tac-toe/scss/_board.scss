@@ -41,47 +41,36 @@
 }
 
 .board.x .cell:not(.x):not(.circle):hover,
-.cell.x {
-  &::before,
-  &::after {
-    position: absolute;
+.board.circle .cell:not(.x):not(.circle):hover,
+.cell.x,
+.cell.circle {
+  &::before {
+    position: relative;
     content: "";
     display: block;
-    width: calc(var(--size-mark) * 0.2);
+    width: var(--size-mark);
     height: var(--size-mark);
-    background-color: currentcolor;
+    background-size: contain;
   }
+}
 
+.board.x .cell:not(.x):not(.circle):hover,
+.cell.x {
   &::before {
-    transform: rotate(45deg);
-  }
-
-  &::after {
-    transform: rotate(-45deg);
+    background-image: url("../assets/svg/x-icon.svg");
   }
 }
 
 .board.circle .cell:not(.x):not(.circle):hover,
 .cell.circle {
-  &::before,
-  &::after {
-    position: absolute;
-    content: "";
-    display: block;
-    border-radius: 50%;
-  }
-
   &::before {
-    width: calc(var(--size-mark) * 0.9);
-    height: calc(var(--size-mark) * 0.9);
-    border: calc(var(--size-mark) * 0.2) solid currentcolor;
+    background-image: url("../assets/svg/o-icon.svg");
   }
 }
 
-.board.x .cell:not(.x):not(.circle):hover,
-.board.circle .cell:not(.x):not(.circle):hover {
-  &::before,
-  &::after {
-    color: #e0e0e0;
+.board.x,
+.board.circle {
+  .cell:not(.x):not(.circle):hover::before {
+    filter: invert(99%) sepia(0%) saturate(6745%) hue-rotate(229deg) brightness(122%) contrast(76%);
   }
 }

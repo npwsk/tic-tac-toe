@@ -28,7 +28,7 @@ const scoreboard = document.querySelector('.scoreboard');
 const scoreboardXWins = scoreboard.querySelector('.x-wins-count');
 const scoreboardOWins = scoreboard.querySelector('.o-wins-count');
 const scoreboardDraws = scoreboard.querySelector('.draws-count');
-const currentTurn = document.querySelector('.current-turn__turn');
+const currentTurnIcon = document.querySelector('.current-turn__turn-icon');
 
 const setLocalStorage = () => {
   const { results } = gameState;
@@ -51,7 +51,8 @@ const updateScoreboard = () => {
 };
 
 const updateTurn = () => {
-  currentTurn.textContent = gameState.turn;
+  currentTurnIcon.classList.remove(X, CIRCLE);
+  currentTurnIcon.classList.add(gameState.turn);
 };
 
 const switchTurns = () => {
@@ -79,14 +80,18 @@ const showEndMessage = (isDraw) => {
   endMessage.classList.add('end-message--active');
   const { movesCount } = gameState;
 
-  endMessageMovesTotal.textContent = `Game ended in ${movesCount} step${movesCount < 2 ? '' : 's'}`;
+  endMessageText.classList.remove(X, CIRCLE);
+  endMessageMovesTotal.textContent = `Game was finished in ${movesCount} step${
+    movesCount < 2 ? '' : 's'
+  }`;
 
   if (isDraw) {
     endMessageText.textContent = 'Draw!';
     return;
   }
 
-  endMessageText.textContent = `${gameState.turn} wins!`;
+  endMessageText.classList.add(gameState.turn);
+  endMessageText.innerHTML = `wins!`;
 };
 
 const handleCellClick = (e) => {

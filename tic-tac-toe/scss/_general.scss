@@ -61,4 +61,20 @@ body {
 
 .current-turn {
   display: flex;
+  align-items: center;
+}
+
+.turn-icon {
+  display: block;
+  width: 1em;
+  height: 1em;
+  background-size: contain;
+
+  &.x {
+    background-image: url("../assets/svg/x-icon.svg");
+  }
+
+  &.circle {
+    background-image: url("../assets/svg/o-icon.svg");
+  }
 }
