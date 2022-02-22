@@ -1,4 +1,7 @@
 .footer {
+  grid-area: footer;
+  margin-top: auto;
+
   &__content {
     display: flex;
     justify-content: space-between;

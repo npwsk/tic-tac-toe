@@ -1,3 +1,5 @@
+@use "scss-variables" as *;
+
 *,
 *::after,
 *::before {
@@ -6,18 +8,33 @@
 
 body {
   position: relative;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-areas:
+    "side score . "
+    "side main ."
+    "footer footer footer";
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
   min-height: 100vh;
   margin: 0;
   font-size: 16px;
   font-family: "Lato", sans-serif;
+
+  @media (max-width: $breakpoint-tablet) {
+    grid-template-areas:
+      "score"
+      "main"
+      "side"
+      "footer";
+    grid-template-columns: 1fr;
+  }
 }
 
 .main {
   display: flex;
   flex-grow: 1;
   flex-direction: column;
+  grid-area: main;
   justify-content: center;
   align-items: center;
   min-height: 100%;
@@ -26,11 +43,13 @@ body {
 .sidebar {
   display: flex;
   flex-direction: column;
+  grid-area: side;
   gap: 1.5rem;
   justify-content: center;
   align-items: center;
 
   &--top {
+    grid-area: score;
     order: -1;
     padding-top: 2rem;
   }
