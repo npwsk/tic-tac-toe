@@ -1,6 +1,10 @@
 @use "css-variables";
 @use "general";
+@use "restart-btn";
+@use "settings-btn";
+@use "modal";
+@use "settings-modal";
+@use "end-message";
 @use "board";
 @use "scoreboard";
 @use "footer";
-@use "end-message";

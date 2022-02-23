@@ -1,6 +1,7 @@
 :root {
   --size-cell: 80px;
   --size-mark: 60px;
+  --size-nav-btn: 24px;
 }
 
 *,
@@ -89,6 +90,110 @@ body {
   background-image: url("../assets/svg/x-icon.svg");
 }
 .turn-icon.circle {
+  background-image: url("../assets/svg/o-icon.svg");
+}
+
+.restart-btn {
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+  height: 2.5em;
+  padding: 0 1em 0 0.8em;
+  color: #ffffff;
+  background: none;
+  background-color: #000000;
+  border: none;
+  border-radius: 1.25em;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.restart-btn__icon {
+  display: block;
+  width: 1em;
+  height: 1em;
+  background-image: url("../assets/svg/restart.svg");
+  background-size: contain;
+  transform: rotate(0);
+  transition: transform 0.5s ease-out;
+}
+.restart-btn:hover {
+  box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+.restart-btn:hover .restart-btn__icon {
+  transform: rotate(360deg);
+}
+
+.settings-btn {
+  display: block;
+  width: var(--size-nav-btn);
+  height: var(--size-nav-btn);
+  padding: 0;
+  font: inherit;
+  background-color: transparent;
+  background-image: url("../assets/svg/settings.svg");
+  background-size: contain;
+  border: none;
+  transform: rotate(0);
+  cursor: pointer;
+  transition: transform 0.5s ease-out;
+}
+.settings-btn:hover {
+  transform: rotate(90deg);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1001;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  visibility: hidden;
+  cursor: pointer;
+}
+.modal--active {
+  visibility: visible;
+}
+.modal__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  justify-content: center;
+  align-items: center;
+  min-width: 400px;
+  min-height: 200px;
+  padding: 50px;
+  background-color: #ffffff;
+  cursor: auto;
+}
+
+.settings-modal--active {
+  visibility: visible;
+}
+
+.end-message__text {
+  display: flex;
+  gap: 0.3em;
+  align-items: center;
+  font-size: 2em;
+}
+.end-message__text.x::before, .end-message__text.circle::before {
+  content: "";
+  display: block;
+  width: 1em;
+  height: 1em;
+  margin-bottom: -5px;
+  background-size: contain;
+}
+.end-message__text.x::before {
+  background-image: url("../assets/svg/x-icon.svg");
+}
+.end-message__text.circle::before {
   background-image: url("../assets/svg/o-icon.svg");
 }
 
@@ -235,82 +340,4 @@ body {
 }
 .footer__rs-link::after {
   bottom: -5px;
-}
-
-.end-message {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.7);
-  visibility: hidden;
-}
-.end-message__inner {
-  display: flex;
-  flex-direction: column;
-  gap: 2em;
-  justify-content: center;
-  align-items: center;
-  min-width: 400px;
-  min-height: 200px;
-  padding: 50px;
-  background-color: #ffffff;
-}
-.end-message__text {
-  display: flex;
-  gap: 0.3em;
-  align-items: center;
-  font-size: 2em;
-}
-.end-message__text.x::before, .end-message__text.circle::before {
-  content: "";
-  display: block;
-  width: 1em;
-  height: 1em;
-  margin-bottom: -5px;
-  background-size: contain;
-}
-.end-message__text.x::before {
-  background-image: url("../assets/svg/x-icon.svg");
-}
-.end-message__text.circle::before {
-  background-image: url("../assets/svg/o-icon.svg");
-}
-.end-message--active {
-  visibility: visible;
-}
-
-.restart-btn {
-  display: flex;
-  gap: 0.5em;
-  align-items: center;
-  height: 2.5em;
-  padding: 0 1em 0 0.8em;
-  color: #ffffff;
-  background: none;
-  background-color: #000000;
-  border: none;
-  border-radius: 1.25em;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.restart-btn__icon {
-  display: block;
-  width: 1em;
-  height: 1em;
-  background-image: url("../assets/svg/restart.svg");
-  background-size: contain;
-  transform: rotate(0);
-  transition: transform 0.5s ease-out;
-}
-.restart-btn:hover {
-  box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.3);
-  transform: translateY(-2px);
-}
-.restart-btn:hover .restart-btn__icon {
-  transform: rotate(360deg);
 }/*# sourceMappingURL=index.css.map */
