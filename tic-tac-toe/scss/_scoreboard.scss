@@ -20,12 +20,14 @@
     margin-top: 0.5em;
     margin-bottom: 1.5em;
     font-size: 0.8em;
+    opacity: 0.5;
   }
 
   &__cell {
     padding: 5px 10px;
 
     &--head {
+      font-weight: 700;
       text-decoration: underline;
     }
   }
