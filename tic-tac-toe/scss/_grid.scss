@@ -1,0 +1,39 @@
+@use "scss-variables" as *;
+
+.grid {
+  display: grid;
+  grid-template-areas:
+    "side score . "
+    "side main ."
+    "footer footer footer";
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  min-height: 100vh;
+
+  @media (max-width: $breakpoint-tablet) {
+    grid-template-areas:
+      "score"
+      "main"
+      "side"
+      "footer";
+    grid-template-columns: 1fr;
+  }
+
+  &__main {
+    grid-area: main;
+  }
+
+  &__scoreboard {
+    grid-area: score;
+    padding-top: 2rem;
+  }
+
+  &__side {
+    grid-area: side;
+  }
+
+  &__footer {
+    grid-area: footer;
+    margin-top: auto;
+  }
+}

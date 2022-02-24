@@ -82,20 +82,21 @@ const showEndMessage = (isDraw) => {
   endMessageText.innerHTML = `wins!`;
 };
 
-const hideEndMessage = (e) => {
+const closeModal = (e) => {
+  const modalElem = e.target.closest('.modal');
+
+  if (e.target.classList.contains('modal__close-btn')) {
+    modalElem.classList.remove('modal--active');
+    return;
+  }
+
   if (!e.target.closest('.modal__inner')) {
-    endMessage.classList.remove('modal--active');
+    modalElem.classList.remove('modal--active');
   }
 };
 
 const showSettingsModal = () => {
   settingsModal.classList.add('modal--active');
-};
-
-const hideSettingsModal = (e) => {
-  if (!e.target.closest('.modal__inner')) {
-    settingsModal.classList.remove('modal--active');
-  }
 };
 
 const updateTurn = () => {
@@ -297,6 +298,6 @@ window.addEventListener('load', () => {
 window.addEventListener('beforeunload', setLocalStorage);
 restartBtns.forEach((btn) => btn.addEventListener('click', handleRestart));
 settingsBtn.addEventListener('click', showSettingsModal);
-settingsModal.addEventListener('click', hideSettingsModal);
-endMessage.addEventListener('click', hideEndMessage);
+settingsModal.addEventListener('click', closeModal);
+endMessage.addEventListener('click', closeModal);
 modeCheckbox.addEventListener('input', handleModeInput);

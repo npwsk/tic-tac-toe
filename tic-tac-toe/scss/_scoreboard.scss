@@ -7,6 +7,7 @@
     "x-count draw-count o-count";
   grid-template-columns: repeat(3, auto);
   justify-items: center;
+  justify-content: center;
   min-width: 300px;
 
   &__title {

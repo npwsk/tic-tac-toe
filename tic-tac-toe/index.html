@@ -23,94 +23,110 @@
     <script src="./js/index.js" defer></script>
   </head>
   <body>
-    <main class="main">
-      <div class="board">
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
-      </div>
-    </main>
+    <div class="grid">
+      <main class="grid__main main">
+        <div class="board">
+          <div class="cell" data-cell></div>
+          <div class="cell" data-cell></div>
+          <div class="cell" data-cell></div>
+          <div class="cell" data-cell></div>
+          <div class="cell" data-cell></div>
+          <div class="cell" data-cell></div>
+          <div class="cell" data-cell></div>
+          <div class="cell" data-cell></div>
+          <div class="cell" data-cell></div>
+        </div>
+      </main>
 
-    <aside class="sidebar">
-      <nav>
-        <button class="settings-btn" title="Settings"></button>
+      <aside class="grid__side sidebar">
+        <div class="sidebar__current-turn current-turn">
+          <div class="current-turn__turn-icon turn-icon"></div>
+          's turn
+        </div>
 
-        <div class="settings-modal modal">
-          <div class="modal__inner">
-            <div class="settings-modal__mode">
-              Play against a computer
-              <label class="mode-switch">
-                <input class="mode-switch__checkbox" type="checkbox" checked />
-                <span class="mode-switch__slider"></span>
-              </label>
+        <nav class="sidebar__nav">
+          <button class="settings-btn" title="Settings">Settings</button>
+          <div class="settings-modal modal">
+            <div class="modal__inner">
+              <div class="modal__header">
+                <h2 class="modal__title">Settings</h2>
+                <button class="modal__close-btn" title="Close"></button>
+              </div>
+              <div class="modal__body">
+                <div class="settings-modal__mode">
+                  Play against a computer
+                  <label class="mode-switch">
+                    <input class="mode-switch__checkbox" type="checkbox" checked />
+                    <span class="mode-switch__slider"></span>
+                  </label>
+                </div>
+              </div>
             </div>
           </div>
+        </nav>
+
+        <div class="sidebar__restart">
+          <button class="restart-btn">
+            <span class="restart-btn__icon"></span>
+            Restart
+          </button>
         </div>
-      </nav>
+      </aside>
 
-      <div class="current-turn">
-        <div class="current-turn__turn-icon turn-icon"></div>
-        's turn
-      </div>
+      <aside class="grid__scoreboard">
+        <div class="scoreboard">
+          <h2 class="scoreboard__title">Scoreboard</h2>
+          <div class="scoreboard__description">(only the last 10 games are counted)</div>
+          <div class="scoreboard__cell scoreboard__cell--head x-wins">X</div>
+          <div class="scoreboard__cell scoreboard__cell--head draws">Draws</div>
+          <div class="scoreboard__cell scoreboard__cell--head o-wins">O</div>
+          <div class="scoreboard__cell x-wins-count"></div>
+          <div class="scoreboard__cell draws-count"></div>
+          <div class="scoreboard__cell o-wins-count"></div>
+        </div>
+      </aside>
 
-      <button class="restart-btn">
-        <span class="restart-btn__icon"></span>
-        Restart
-      </button>
-    </aside>
-
-    <aside class="sidebar sidebar--top">
-      <div class="scoreboard">
-        <h2 class="scoreboard__title">Scoreboard</h2>
-        <div class="scoreboard__description">(only the last 10 games are counted)</div>
-
-        <div class="scoreboard__cell scoreboard__cell--head x-wins">X</div>
-        <div class="scoreboard__cell scoreboard__cell--head draws">Draws</div>
-        <div class="scoreboard__cell scoreboard__cell--head o-wins">O</div>
-        <div class="scoreboard__cell x-wins-count"></div>
-        <div class="scoreboard__cell draws-count"></div>
-        <div class="scoreboard__cell o-wins-count"></div>
-      </div>
-    </aside>
-
-    <footer class="footer">
-      <div class="footer__content">
-        <div class="footer__copyright">
-          <div>©</div>
-          <div>2022</div>
+      <footer class="grid__footer footer">
+        <div class="footer__content">
+          <div class="footer__copyright">
+            <div>©</div>
+            <div>2022</div>
+            <a
+              class="footer__github-link link"
+              href="https://github.com/npwsk"
+              target="_blank"
+              rel="noopener noreferrer"
+              tite="Github profile"
+              >npwsk</a
+            >
+          </div>
           <a
-            class="footer__github-link link"
-            href="https://github.com/npwsk"
+            class="footer__rs-link link"
+            href="https://rs.school/js-stage0/"
             target="_blank"
             rel="noopener noreferrer"
-            tite="Github profile"
-            >npwsk</a
-          >
+            title="RS School"
+          ></a>
         </div>
-        <a
-          class="footer__rs-link link"
-          href="https://rs.school/js-stage0/"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="RS School"
-        ></a>
-      </div>
-    </footer>
+      </footer>
+    </div>
 
     <div class="end-message modal">
       <div class="modal__inner">
-        <div class="end-message__text"></div>
-        <div class="end-message__moves-total"></div>
-        <button class="restart-btn">
-          <span class="restart-btn__icon"></span>
-          Restart
-        </button>
+        <div class="modal__header">
+          <h2 class="modal__title">Game over</h2>
+          <button class="modal__close-btn" title="Close"></button>
+        </div>
+        <div class="modal__body">
+          <div class="end-message__text"></div>
+          <div class="end-message__moves-total"></div>
+        </div>
+        <div class="modal__footer">
+          <button class="end-message__restart-btn restart-btn">
+            <span class="restart-btn__icon"></span>
+            Restart
+          </button>
+        </div>
       </div>
     </div>
   </body>

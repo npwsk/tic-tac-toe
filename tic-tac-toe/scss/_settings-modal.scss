@@ -4,4 +4,10 @@
     gap: 1em;
     align-items: center;
   }
+
+  &__close-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
 }
