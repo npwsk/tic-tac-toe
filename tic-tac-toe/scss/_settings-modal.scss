@@ -10,4 +10,10 @@
     border: none;
     cursor: pointer;
   }
+
+  &__mark {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+  }
 }

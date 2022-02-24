@@ -54,30 +54,41 @@
               </div>
               <div class="modal__body">
                 <div class="settings-modal__mode">
-                  Play against a computer
+                  Play against a computer:
                   <label class="mode-switch">
                     <input class="mode-switch__checkbox" type="checkbox" checked />
                     <span class="mode-switch__slider"></span>
                   </label>
                 </div>
 
-                <div class="settings-modal__mark mark-toggle">
-                  <input
-                    class="mark-toggle__input"
-                    type="radio"
-                    name="mark"
-                    id="x-option"
-                    data-mark="x"
-                  />
-                  <input
-                    class="mark-toggle__input"
-                    type="radio"
-                    name="mark"
-                    id="o-option"
-                    data-mark="circle"
-                  />
-                  <label class="mark-toggle__label" for="x-option" title="X"></label>
-                  <label class="mark-toggle__label" for="o-option" title="O"></label>
+                <div class="settings-modal__mark">
+                  Choose a mark:
+                  <div class="mark-toggle">
+                    <input
+                      class="mark-toggle__input"
+                      type="radio"
+                      name="mark"
+                      id="x-option"
+                      data-mark="x"
+                    />
+                    <label
+                      class="mark-toggle__label mark-toggle__label--x"
+                      for="x-option"
+                      title="X"
+                    ></label>
+                    <input
+                      class="mark-toggle__input"
+                      type="radio"
+                      name="mark"
+                      id="o-option"
+                      data-mark="circle"
+                    />
+                    <label
+                      class="mark-toggle__label mark-toggle__label--o"
+                      for="o-option"
+                      title="O"
+                    ></label>
+                  </div>
                 </div>
               </div>
             </div>
@@ -141,7 +152,7 @@
           <div class="end-message__moves-total"></div>
         </div>
         <div class="modal__footer">
-          <button class="end-message__restart-btn restart-btn">
+          <button class="restart-btn">
             <span class="restart-btn__icon"></span>
             Restart
           </button>
