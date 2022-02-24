@@ -60,6 +60,7 @@ body {
   height: 1em;
   background-position: 50% 50%;
   background-size: contain;
+  transition: background 0.1s;
 }
 .turn-icon.x {
   background-image: url("../assets/svg/x-icon.svg");
@@ -421,17 +422,22 @@ body {
   color: #000000;
   cursor: default;
 }
-
-.board.x .cell:not(.x):not(.circle):hover::before,
-.board.circle .cell:not(.x):not(.circle):hover::before,
-.cell.x::before,
-.cell.circle::before {
+.cell::before {
   position: relative;
   content: "";
   display: block;
   width: var(--size-mark);
   height: var(--size-mark);
   background-size: contain;
+  opacity: 0;
+  transition: opacity 0.2s, background 0.2s;
+}
+
+.board.x .cell:not(.x):not(.circle):hover::before,
+.board.circle .cell:not(.x):not(.circle):hover::before,
+.cell.x::before,
+.cell.circle::before {
+  opacity: 1;
 }
 
 .board.x .cell:not(.x):not(.circle):hover::before,

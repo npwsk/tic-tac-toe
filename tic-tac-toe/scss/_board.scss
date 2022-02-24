@@ -38,12 +38,7 @@
     color: #000000;
     cursor: default;
   }
-}
 
-.board.x .cell:not(.x):not(.circle):hover,
-.board.circle .cell:not(.x):not(.circle):hover,
-.cell.x,
-.cell.circle {
   &::before {
     position: relative;
     content: "";
@@ -51,6 +46,17 @@
     width: var(--size-mark);
     height: var(--size-mark);
     background-size: contain;
+    opacity: 0;
+    transition: opacity 0.2s, background 0.2s;
+  }
+}
+
+.board.x .cell:not(.x):not(.circle):hover,
+.board.circle .cell:not(.x):not(.circle):hover,
+.cell.x,
+.cell.circle {
+  &::before {
+    opacity: 1;
   }
 }
 

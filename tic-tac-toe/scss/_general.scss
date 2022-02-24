@@ -58,6 +58,7 @@ body {
   height: 1em;
   background-position: 50% 50%;
   background-size: contain;
+  transition: background 0.1s;
 
   &.x {
     background-image: url("../assets/svg/x-icon.svg");
