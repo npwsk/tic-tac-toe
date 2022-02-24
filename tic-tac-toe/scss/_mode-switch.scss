@@ -1,0 +1,44 @@
+.mode-switch {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 34px;
+
+  &__checkbox {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+
+  &__slider {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #cccccc;
+    border-radius: 34px;
+    cursor: pointer;
+    transition: background-color 0.4s;
+
+    &::before {
+      position: absolute;
+      bottom: 4px;
+      left: 4px;
+      content: "";
+      width: 26px;
+      height: 26px;
+      background-color: #ffffff;
+      border-radius: 50%;
+      transition: transform 0.4s;
+    }
+  }
+
+  &__checkbox:checked + &__slider {
+    background-color: #2e2e2e;
+
+    &::before {
+      transform: translateX(19px);
+    }
+  }
+}

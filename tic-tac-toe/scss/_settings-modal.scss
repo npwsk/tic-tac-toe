@@ -1,7 +1,7 @@
 .settings-modal {
-  // visibility: visible;
-
-  &--active {
-    visibility: visible;
+  &__mode {
+    display: flex;
+    gap: 1em;
+    align-items: center;
   }
 }
