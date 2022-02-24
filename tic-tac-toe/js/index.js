@@ -21,7 +21,7 @@ const gameState = {
   board: [...new Array(9)],
   mode: {
     name: MODE_COMPUTER,
-    computerClass: X,
+    computerMark: CIRCLE,
   },
 };
 
@@ -39,6 +39,9 @@ const currentTurnIcon = document.querySelector('.current-turn__turn-icon');
 const settingsBtn = document.querySelector('.settings-btn');
 const settingsModal = document.querySelector('.settings-modal');
 const modeCheckbox = settingsModal.querySelector('.mode-switch__checkbox');
+const markRadioBtns = [...document.querySelectorAll('.mark-toggle__input')];
+const markXRadio = markRadioBtns.find((btn) => btn.dataset.mark === X);
+const markORadio = markRadioBtns.find((btn) => btn.dataset.mark === CIRCLE);
 
 const setLocalStorage = () => {
   const { results } = gameState;
@@ -50,8 +53,17 @@ const getLocalStorage = () => {
   gameState.results = results ? JSON.parse(results) : [];
 };
 
-const setInitMode = () => {
-  modeCheckbox.checked = true;
+const setInitSettings = () => {
+  const isModeComputer = gameState.mode.name === MODE_COMPUTER;
+  const isUserMarkX = gameState.mode.computerMark === CIRCLE;
+
+  modeCheckbox.checked = isModeComputer;
+  markXRadio.checked = isUserMarkX;
+  markORadio.checked = !isUserMarkX;
+
+  markRadioBtns.forEach((btn) => {
+    btn.disabled = gameState.mode.name === MODE_HUMAN;
+  });
 };
 
 const updateScoreboard = () => {
@@ -262,7 +274,7 @@ const startGame = () => {
   boardElem.classList.remove(X, CIRCLE);
   boardElem.classList.add(X);
 
-  if (gameState.mode.name === MODE_COMPUTER && gameState.mode.computerClass === X) {
+  if (gameState.mode.name === MODE_COMPUTER && gameState.mode.computerMark === X) {
     makeBestMove();
     switchTurns();
   }
@@ -282,22 +294,36 @@ const handleRestart = () => {
   restartGame();
 };
 
-const handleModeInput = (e) => {
+const handleModeChange = (e) => {
   const checkbox = e.target;
   gameState.mode.name = checkbox.checked ? MODE_COMPUTER : MODE_HUMAN;
+  markRadioBtns.forEach((btn) => {
+    btn.disabled = gameState.mode.name === MODE_HUMAN;
+  });
   restartGame();
+};
+
+const handleMarkChange = (e) => {
+  const markRadioBtn = e.target;
+  if (markRadioBtn.checked) {
+    const isUserMarkX = markRadioBtn.dataset.xMark;
+    gameState.mode.computerMark = isUserMarkX ? CIRCLE : X;
+    restartGame();
+  }
 };
 
 window.addEventListener('load', () => {
   getLocalStorage();
   updateScoreboard();
-  setInitMode();
+  setInitSettings();
+
+  window.addEventListener('beforeunload', setLocalStorage);
+  restartBtns.forEach((btn) => btn.addEventListener('click', handleRestart));
+  settingsBtn.addEventListener('click', showSettingsModal);
+  settingsModal.addEventListener('click', closeModal);
+  endMessage.addEventListener('click', closeModal);
+  modeCheckbox.addEventListener('input', handleModeChange);
+  markRadioBtns.forEach((radioBtn) => radioBtn.addEventListener('input', handleMarkChange));
+
   startGame();
 });
-
-window.addEventListener('beforeunload', setLocalStorage);
-restartBtns.forEach((btn) => btn.addEventListener('click', handleRestart));
-settingsBtn.addEventListener('click', showSettingsModal);
-settingsModal.addEventListener('click', closeModal);
-endMessage.addEventListener('click', closeModal);
-modeCheckbox.addEventListener('input', handleModeInput);
