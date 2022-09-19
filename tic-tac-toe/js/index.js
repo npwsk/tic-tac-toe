@@ -15,6 +15,7 @@ const WINNING_COMBS = [
 ];
 
 const gameState = {
+  isFinished: false,
   turn: X,
   movesCount: 0,
   results: [],
@@ -194,6 +195,8 @@ const findBestMove = (board, player) => {
 const checkGameOver = () => checkWin(gameState.board, gameState.turn) || checkDraw(gameState.board);
 
 const finishGame = () => {
+  gameState.isFinished = true;
+
   if (checkWin(gameState.board, gameState.turn)) {
     countResult(gameState.turn);
     updateScoreboard();
@@ -226,6 +229,8 @@ const makeBestMove = () => {
 };
 
 const handleCellClick = (e) => {
+  if (gameState.isFinished) return;
+
   const cell = e.target;
   const cellIndex = cells.indexOf(cell);
   switch (gameState.mode.name) {
@@ -265,6 +270,7 @@ const handleCellClick = (e) => {
 };
 
 const startGame = () => {
+  gameState.isFinished = false;
   gameState.board = [...new Array(9)];
   gameState.movesCount = 0;
   gameState.turn = X;
