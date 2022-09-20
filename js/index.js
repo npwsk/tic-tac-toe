@@ -62,9 +62,11 @@ const setInitSettings = () => {
   markXRadio.checked = isUserMarkX;
   markORadio.checked = !isUserMarkX;
 
+  /* eslint-disable no-param-reassign */
   markRadioBtns.forEach((btn) => {
     btn.disabled = gameState.mode.name === MODE_HUMAN;
   });
+  /* eslint-enable no-param-reassign */
 };
 
 const updateScoreboard = () => {
@@ -303,9 +305,11 @@ const handleRestart = () => {
 const handleModeChange = (e) => {
   const checkbox = e.target;
   gameState.mode.name = checkbox.checked ? MODE_COMPUTER : MODE_HUMAN;
+  /* eslint-disable no-param-reassign */
   markRadioBtns.forEach((btn) => {
     btn.disabled = gameState.mode.name === MODE_HUMAN;
   });
+  /* eslint-enable no-param-reassign */
   restartGame();
 };
 
