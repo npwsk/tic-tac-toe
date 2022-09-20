@@ -6,9 +6,10 @@
   "author": "Nika Perfilova",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html",
+    "build": "parcel build --no-content-hash index.html",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint js/ & stylelint scss/"
+    "lint": "eslint js/ && stylelint scss/ && htmlhint index.html",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.7.0",
@@ -17,6 +18,7 @@
     "eslint-config-prettier": "^8.4.0",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-prettier": "^4.0.0",
+    "gh-pages": "^4.0.0",
     "htmlhint": "^1.1.2",
     "parcel": "^2.7.0",
     "stylelint": "^14.5.0",
