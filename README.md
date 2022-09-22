@@ -10,7 +10,7 @@
 
 This is a web tic-tac-toe game.
 
-Deployed game can be found here: https://npwsk.github.io/tic-tac-toe/tic-tac-toe/
+Deployed game can be found here: https://npwsk.github.io/tic-tac-toe/
 
 ## Table of Contents
 
