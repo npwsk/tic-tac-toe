@@ -34,7 +34,7 @@ git clone https://github.com/npwsk/tic-tac-toe
 
 cd tic-tac-toe
 
-npm ci
+npm i
 ```
 
 ### Run
